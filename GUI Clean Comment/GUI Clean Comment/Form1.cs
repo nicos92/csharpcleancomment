@@ -34,10 +34,12 @@ namespace GUI_Clean_Comment
         private void TableLayoutPanel1_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
+            tableLayoutPanel1.BackColor = Color.FromArgb(40,65,65);
         }
 
         private void TableLayoutPanel1_DragDrop(object sender, DragEventArgs e)
         {
+            tableLayoutPanel1.BackColor = Color.FromArgb(30, 35, 35);
 
             txtEncoding.Text = "";
             string[] archivos = (string[])e.Data.GetData(DataFormats.FileDrop, false);
@@ -235,6 +237,11 @@ namespace GUI_Clean_Comment
         private void TxtArchivoSalida_MouseLeave_1(object sender, EventArgs e)
         {
             txtArchivoSalida.BorderStyle = BorderStyle.None;
+        }
+
+        private void tableLayoutPanel1_DragLeave(object sender, EventArgs e)
+        {
+            tableLayoutPanel1.BackColor = Color.FromArgb(30, 35, 35);
         }
     }
 }

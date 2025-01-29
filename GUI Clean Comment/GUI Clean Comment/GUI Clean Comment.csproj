@@ -193,6 +193,9 @@
     </Compile>
     <Compile Include="bd_archivos\MiArchivo.cs" />
     <Compile Include="bd_archivos\MiConexion.cs" />
+    <Compile Include="NSButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RJToggleBtn.cs">
