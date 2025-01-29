@@ -1,0 +1,5 @@
+insert into configuracion ( sonido_archivo_entrada, sonido_archivo_salida, abrir_archivo_salida) values ( 1,1,1);
+select * from configuracion;
+update configuracion set sonido_archivo_entrada = 0 where id = 1;
+update configuracion set sonido_archivo_salida = 0 where id = 1;
+update configuracion set abrir_archivo_salida = 0 where id = 1;
