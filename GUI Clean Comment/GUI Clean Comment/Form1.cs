@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using clean_comment;
 using Microsoft.ProgramSynthesis.Detection.Encoding;
 using clean_comment.modelo;
+using System.Reflection.Emit;
+using System.Reflection;
 
 namespace GUI_Clean_Comment
 {
@@ -44,12 +46,31 @@ namespace GUI_Clean_Comment
             txtEncoding.Text = "";
             string[] archivos = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             string fileInfo = new FileInfo(archivos[0]).Name;
+
+            ValidarArchivo(archivos[0],  fileInfo);
+            
+        }
+
+        private void BtnAbrirArchivo_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string rutaArchivo = openFileDialog1.FileName;
+                string fileInfo = new FileInfo(rutaArchivo).Name;
+
+
+                ValidarArchivo(rutaArchivo, fileInfo);
+            }
+        }
+
+        private void ValidarArchivo(string rutaArchivo, string fileInfo)
+        {
             if (fileInfo.ToLower().EndsWith(".txt") == true)
             {
                 if (Properties.Settings.Default.sonidoEntradaArchivo == true) PlayIda();
 
                 nameFile.Text = fileInfo;
-                LeerArchivo(archivos[0], fileInfo);
+                LeerArchivo(rutaArchivo, fileInfo);
             }
             else
             {
@@ -242,6 +263,13 @@ namespace GUI_Clean_Comment
         private void tableLayoutPanel1_DragLeave(object sender, EventArgs e)
         {
             tableLayoutPanel1.BackColor = Color.FromArgb(30, 35, 35);
+        }
+
+       
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

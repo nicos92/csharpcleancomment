@@ -35,16 +35,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboDelimitador = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.nameFile = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtEncoding = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtArchivoSalida = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtEncoding = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nameFile = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboDelimitador = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.nsButton1 = new Controles.NSButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.BtnAbrirArchivo = new Controles.NSButton();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,7 +55,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Hack Nerd Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Hack Nerd Font Mono", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(304, 7);
             this.label2.Name = "label2";
@@ -90,7 +91,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.comboDelimitador, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.nsButton1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.BtnAbrirArchivo, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -137,20 +138,84 @@
             this.label1.Size = new System.Drawing.Size(649, 38);
             this.label1.TabIndex = 9;
             this.label1.Text = "Elije un delimitador de comentarios y elimina los comentarios de archivos de text" +
-    "o";
+    "o \".txt\"";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // txtArchivoSalida
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(352, 141);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Delimitador";
+            this.txtArchivoSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtArchivoSalida.AutoSize = true;
+            this.txtArchivoSalida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtArchivoSalida.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtArchivoSalida.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtArchivoSalida.Location = new System.Drawing.Point(392, 414);
+            this.txtArchivoSalida.Name = "txtArchivoSalida";
+            this.txtArchivoSalida.Size = new System.Drawing.Size(15, 15);
+            this.txtArchivoSalida.TabIndex = 14;
+            this.txtArchivoSalida.Text = ".";
+            this.txtArchivoSalida.DoubleClick += new System.EventHandler(this.TxtArchivoSalida_DoubleClick);
+            this.txtArchivoSalida.MouseEnter += new System.EventHandler(this.TxtArchivoSalida_MouseEnter_1);
+            this.txtArchivoSalida.MouseLeave += new System.EventHandler(this.TxtArchivoSalida_MouseLeave_1);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Hack Nerd Font Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label9.Location = new System.Drawing.Point(328, 375);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 15);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Archivo de Salida";
+            // 
+            // txtEncoding
+            // 
+            this.txtEncoding.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEncoding.AutoSize = true;
+            this.txtEncoding.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEncoding.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtEncoding.Location = new System.Drawing.Point(392, 336);
+            this.txtEncoding.Name = "txtEncoding";
+            this.txtEncoding.Size = new System.Drawing.Size(15, 15);
+            this.txtEncoding.TabIndex = 13;
+            this.txtEncoding.Text = ".";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Hack Nerd Font Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(292, 297);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(215, 15);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Codificacion de caracteres";
+            // 
+            // nameFile
+            // 
+            this.nameFile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameFile.AutoSize = true;
+            this.nameFile.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameFile.ForeColor = System.Drawing.Color.Gainsboro;
+            this.nameFile.Location = new System.Drawing.Point(392, 258);
+            this.nameFile.Name = "nameFile";
+            this.nameFile.Size = new System.Drawing.Size(15, 15);
+            this.nameFile.TabIndex = 11;
+            this.nameFile.Text = ".";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Hack Nerd Font Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label4.Location = new System.Drawing.Point(316, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(167, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Archivo Seleccionado";
             // 
             // comboDelimitador
             // 
@@ -172,81 +237,17 @@
             this.comboDelimitador.TabIndex = 1;
             this.comboDelimitador.Text = "//";
             // 
-            // label4
+            // label3
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(316, 219);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 15);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Archivo Seleccionado";
-            // 
-            // nameFile
-            // 
-            this.nameFile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameFile.AutoSize = true;
-            this.nameFile.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameFile.ForeColor = System.Drawing.Color.Gainsboro;
-            this.nameFile.Location = new System.Drawing.Point(392, 258);
-            this.nameFile.Name = "nameFile";
-            this.nameFile.Size = new System.Drawing.Size(15, 15);
-            this.nameFile.TabIndex = 11;
-            this.nameFile.Text = ".";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(292, 297);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(215, 15);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Codificacion de caracteres";
-            // 
-            // txtEncoding
-            // 
-            this.txtEncoding.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEncoding.AutoSize = true;
-            this.txtEncoding.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEncoding.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtEncoding.Location = new System.Drawing.Point(392, 336);
-            this.txtEncoding.Name = "txtEncoding";
-            this.txtEncoding.Size = new System.Drawing.Size(15, 15);
-            this.txtEncoding.TabIndex = 13;
-            this.txtEncoding.Text = ".";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(328, 375);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 15);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Archivo de Salida";
-            // 
-            // txtArchivoSalida
-            // 
-            this.txtArchivoSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtArchivoSalida.AutoSize = true;
-            this.txtArchivoSalida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtArchivoSalida.Font = new System.Drawing.Font("Hack Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtArchivoSalida.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtArchivoSalida.Location = new System.Drawing.Point(392, 414);
-            this.txtArchivoSalida.Name = "txtArchivoSalida";
-            this.txtArchivoSalida.Size = new System.Drawing.Size(15, 15);
-            this.txtArchivoSalida.TabIndex = 14;
-            this.txtArchivoSalida.Text = ".";
-            this.txtArchivoSalida.DoubleClick += new System.EventHandler(this.TxtArchivoSalida_DoubleClick);
-            this.txtArchivoSalida.MouseEnter += new System.EventHandler(this.TxtArchivoSalida_MouseEnter_1);
-            this.txtArchivoSalida.MouseLeave += new System.EventHandler(this.TxtArchivoSalida_MouseLeave_1);
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Hack Nerd Font Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label3.Location = new System.Drawing.Point(352, 141);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Delimitador";
             // 
             // notifyIcon1
             // 
@@ -255,25 +256,32 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.BalloonTipClicked += new System.EventHandler(this.NotifyIcon1_BalloonTipClicked);
             // 
-            // nsButton1
+            // openFileDialog1
             // 
-            this.nsButton1.BackColor = System.Drawing.Color.DarkCyan;
-            this.nsButton1.BackGroudColor = System.Drawing.Color.DarkCyan;
-            this.nsButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nsButton1.BorderRadius = 31;
-            this.nsButton1.BorderSize = 1;
-            this.nsButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nsButton1.FlatAppearance.BorderSize = 0;
-            this.nsButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nsButton1.Font = new System.Drawing.Font("Hack Nerd Font", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nsButton1.ForeColor = System.Drawing.Color.White;
-            this.nsButton1.Location = new System.Drawing.Point(43, 81);
-            this.nsButton1.Name = "nsButton1";
-            this.nsButton1.Size = new System.Drawing.Size(714, 45);
-            this.nsButton1.TabIndex = 16;
-            this.nsButton1.Text = "Arrastra y Suelta tu Archivo";
-            this.nsButton1.TextColor = System.Drawing.Color.White;
-            this.nsButton1.UseVisualStyleBackColor = false;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // BtnAbrirArchivo
+            // 
+            this.BtnAbrirArchivo.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnAbrirArchivo.BackGroudColor = System.Drawing.Color.DarkCyan;
+            this.BtnAbrirArchivo.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnAbrirArchivo.BorderRadius = 31;
+            this.BtnAbrirArchivo.BorderSize = 2;
+            this.BtnAbrirArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAbrirArchivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnAbrirArchivo.FlatAppearance.BorderSize = 0;
+            this.BtnAbrirArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAbrirArchivo.Font = new System.Drawing.Font("Hack Nerd Font", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAbrirArchivo.ForeColor = System.Drawing.Color.White;
+            this.BtnAbrirArchivo.Location = new System.Drawing.Point(43, 81);
+            this.BtnAbrirArchivo.Name = "BtnAbrirArchivo";
+            this.BtnAbrirArchivo.Size = new System.Drawing.Size(714, 45);
+            this.BtnAbrirArchivo.TabIndex = 16;
+            this.BtnAbrirArchivo.Text = "Abre ó Arrastra y Suelta tu Archivo";
+            this.BtnAbrirArchivo.TextColor = System.Drawing.Color.White;
+            this.BtnAbrirArchivo.UseVisualStyleBackColor = false;
+            this.BtnAbrirArchivo.Click += new System.EventHandler(this.BtnAbrirArchivo_Click);
             // 
             // Form1
             // 
@@ -307,6 +315,7 @@
         private System.Windows.Forms.Label txtArchivoSalida;
         private System.Windows.Forms.Label nameFile;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private Controles.NSButton nsButton1;
+        private Controles.NSButton BtnAbrirArchivo;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
