@@ -112,7 +112,7 @@
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.TableLayoutPanel1_DragDrop);
             this.tableLayoutPanel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.TableLayoutPanel1_DragEnter);
-            this.tableLayoutPanel1.DragLeave += new System.EventHandler(this.tableLayoutPanel1_DragLeave);
+            this.tableLayoutPanel1.DragLeave += new System.EventHandler(this.TableLayoutPanel1_DragLeave);
             // 
             // pictureBox1
             // 
@@ -259,7 +259,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // BtnAbrirArchivo
             // 

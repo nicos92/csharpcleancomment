@@ -6,12 +6,10 @@ namespace clean_comment
 {
     public class MiConexion
     {
-
-        private readonly string BasedeDatos;
+        // https://www.youtube.com/watch?v=l_HysfACS4o
         private static MiConexion MiConex = null;
 
         private MiConexion() {
-            this.BasedeDatos = "db_cleanCommentFiles.db";
         }
 
         public SQLiteConnection CrearConexion()

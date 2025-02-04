@@ -35,8 +35,8 @@ namespace GUI_Clean_Comment
 
         private void TableLayoutPanel1_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Copy;
             tableLayoutPanel1.BackColor = Color.FromArgb(40,65,65);
+            e.Effect = DragDropEffects.Copy;
         }
 
         private void TableLayoutPanel1_DragDrop(object sender, DragEventArgs e)
@@ -45,8 +45,9 @@ namespace GUI_Clean_Comment
 
             txtEncoding.Text = "";
             string[] archivos = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            Console.WriteLine(archivos[0]);
             string fileInfo = new FileInfo(archivos[0]).Name;
-
+            Console.WriteLine(  fileInfo);
             ValidarArchivo(archivos[0],  fileInfo);
             
         }
@@ -260,16 +261,12 @@ namespace GUI_Clean_Comment
             txtArchivoSalida.BorderStyle = BorderStyle.None;
         }
 
-        private void tableLayoutPanel1_DragLeave(object sender, EventArgs e)
+        private void TableLayoutPanel1_DragLeave(object sender, EventArgs e)
         {
             tableLayoutPanel1.BackColor = Color.FromArgb(30, 35, 35);
         }
 
        
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
     }
 }
